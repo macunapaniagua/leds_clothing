@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Option;
+use App\Models\Option;
 
 class OptionsTableSeeder extends Seeder
 {
@@ -44,6 +44,12 @@ class OptionsTableSeeder extends Seeder
           ['description' => 'Entre ¢20000 y ¢30000', 'question_id' => 10],
           ['description' => 'Entre ¢30000 y ¢40000', 'question_id' => 10],
           ['description' => '¢40000 o más', 'question_id' => 10],
+          ['description' => 'De 10 años a 15 años', 'question_id' => 2],
+          ['description' => 'De 16 años a 21 años', 'question_id' => 2],
+          ['description' => 'De 22 años a 26 años', 'question_id' => 2],
+          ['description' => 'De 27 años a 32 años', 'question_id' => 2],
+          ['description' => 'De 33 años a 38 años', 'question_id' => 2],
+          ['description' => 'De 39 años a 44 años', 'question_id' => 2],
         ];
         foreach ($options as $option) {
           Option::create($option);

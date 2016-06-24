@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Chart;
+use App\Models\Chart;
 
 class ChartsTableSeeder extends Seeder
 {
@@ -16,6 +16,8 @@ class ChartsTableSeeder extends Seeder
         ['description' => 'Barras'],
         ['description' => 'Circular']
       ];
-      Chart::create($chart);
+      foreach ($charts as $chart) {
+        Chart::create($chart);
+      }
     }
 }

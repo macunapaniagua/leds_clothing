@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::post('answer', 'AnswerController@update_answers');
+Route::get('/questions', 'QuestionController@index');
+Route::resource('image', 'ImagesController');
