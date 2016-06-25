@@ -24,6 +24,7 @@
                     <form action="answer" method="POST">
                         <?php $count = 0; ?>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="question_id" value="{{$question->id}}"/>
                         @foreach($question->options as $option)
                         <?php $count++; ?>
                         <input type="hidden" value="{{$option->answer['id']}}" name="answer_{{$count}}" />

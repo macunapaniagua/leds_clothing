@@ -23,6 +23,7 @@ class AnswerController extends Controller
      */
     public function update_answers(Request $request)
     {
+        $question_id = $request->question_id;
     	$options_count = $request->options_count;
     	for ($i = 1; $i <= $options_count; $i++) {
     		$answer_id = $request["answer_$i"];
@@ -32,6 +33,6 @@ class AnswerController extends Controller
     		$answer->save();
     	}
 
-        return redirect('/questions');
+        return redirect("/questions?question_id=$question_id");
     }
 }
