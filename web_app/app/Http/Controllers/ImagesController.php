@@ -11,7 +11,8 @@ use Storage;
 class ImagesController extends Controller
 {
 
-	protected $image;
+		protected $image;
+		
     public function __construct(Image $image)
     {
         $this->middleware('auth');
@@ -29,10 +30,15 @@ class ImagesController extends Controller
         return view('images/index', compact('images'));
     }
 
-    public function store(Request $request){
-    	$file = $request->file('image');
+		public function store(Request $request){
+
+    	  $file = $request->file('image');
         $name = $this->generateRandomString();
-        return redirect('image');
+				$file->move('images',$name);
+				$image = new Image();
+				$image->name = $name;
+				$image->save();
+			  return redirect('image');
     }
 
     public function generateRandomString() {
